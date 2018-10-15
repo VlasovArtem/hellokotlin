@@ -1,5 +1,7 @@
 package org.avlasov.loop
 
+import org.junit.Assert.assertEquals
+
 /**
  *   Created By artemvlasov on 2018-10-12
  **/
@@ -34,7 +36,7 @@ class LoopExampleApp {
 
 fun main(args: Array<String>) {
     val loopExampleApp = LoopExampleApp()
-    assert(loopExampleApp.loop(listOf("test", "test2", "test23")) == 15)
-    assert(loopExampleApp.loopIndices(listOf("123", "1", "54")) == 6)
-    assert(loopExampleApp.whileLoop(listOf("he", "llo")) == 5)
+    assertEquals(15, loopExampleApp.loop(listOf("test", "test2", "test23")))
+    assertEquals(6, loopExampleApp.loopIndices(listOf("123", "1", "54")))
+    assertEquals(5, loopExampleApp.whileLoop(listOf("he", "llo")))
 }
