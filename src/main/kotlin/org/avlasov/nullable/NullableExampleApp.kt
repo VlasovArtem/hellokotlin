@@ -27,6 +27,13 @@ class NullableExampleApp {
         return files?.size ?: -1
     }
 
+    fun returnIfNotNull(value: String?): String {
+        value?.let {
+            return it.toUpperCase()
+        }
+        return "null"
+    }
+
     private fun parseInt(str: String): Int? {
         return str.toIntOrNull()
     }
@@ -47,5 +54,6 @@ fun main(args: Array<String>) {
     assertEquals(1, nullableExampleApp.ifNotNullElseListFilesSize(filesFolder))
     assertNull(nullableExampleApp.ifNotNullListFilesSize(notExists))
     assertEquals(-1, nullableExampleApp.ifNotNullElseListFilesSize(notExists))
-
+    assertEquals("TEST", nullableExampleApp.returnIfNotNull("test"))
+    assertEquals("null", nullableExampleApp.returnIfNotNull(null))
 }
