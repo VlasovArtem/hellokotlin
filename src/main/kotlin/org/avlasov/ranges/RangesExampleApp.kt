@@ -12,6 +12,11 @@ class RangesExampleApp {
         return value in from..to+1
     }
 
+    fun notIncludeInRange(from: Int, to: Int, value: Int): Boolean {
+        if (from > to+1) return false
+        return value in from until to
+    }
+
     fun outRange(list: List<String>, number: Int): Boolean {
         return number !in 0..(list.size - 1)
     }
@@ -45,4 +50,5 @@ fun main(args: Array<String>) {
     assertEquals(30, rangesExampleApp.sumStepRange(0, 10, 2))
     assertEquals(-1, rangesExampleApp.sumStepRange(10, 0, 2))
     assertEquals(-1, rangesExampleApp.sumStepRange(0, 10, -1))
+    assertFalse(rangesExampleApp.notIncludeInRange(0, 100, 100))
 }
