@@ -1,5 +1,9 @@
 package org.avlasov.nullable
 
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
+import java.io.File
+
 /**
  *   Created By artemvlasov on 2018-10-12
  **/
@@ -13,6 +17,16 @@ class NullableExampleApp {
         return null
     }
 
+    fun ifNotNullListFilesSize(file: File): Int? {
+        val files = file.listFiles()
+        return files?.size
+    }
+
+    fun ifNotNullElseListFilesSize(file: File): Int {
+        val files = file.listFiles()
+        return files?.size ?: -1
+    }
+
     private fun parseInt(str: String): Int? {
         return str.toIntOrNull()
     }
@@ -22,9 +36,16 @@ class NullableExampleApp {
 fun main(args: Array<String>) {
     val nullableExampleApp = NullableExampleApp()
     val add = nullableExampleApp.add("1", "19")
-    assert(add == 20)
+    assertEquals(19, add)
     val nullValue = nullableExampleApp.add("1", "b")
-    assert(nullValue == null)
+    assertNull(nullValue)
     val nullValue1 = nullableExampleApp.add("a", "2")
-    assert(nullValue1 == null)
+    assertNull(nullValue1)
+    val filesFolder = File("./files")
+    val notExists = File("./notexists")
+    assertEquals(1, nullableExampleApp.ifNotNullListFilesSize(filesFolder))
+    assertEquals(1, nullableExampleApp.ifNotNullElseListFilesSize(filesFolder))
+    assertNull(nullableExampleApp.ifNotNullListFilesSize(notExists))
+    assertEquals(-1, nullableExampleApp.ifNotNullElseListFilesSize(notExists))
+
 }
