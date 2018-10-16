@@ -34,6 +34,14 @@ class NullableExampleApp {
         return "null"
     }
 
+    fun booleanNull(isBoolean: Boolean?): String {
+        return if (isBoolean == true) {
+            "true"
+        } else {
+            "false or null"
+        }
+    }
+
     private fun parseInt(str: String): Int? {
         return str.toIntOrNull()
     }
@@ -56,4 +64,7 @@ fun main(args: Array<String>) {
     assertEquals(-1, nullableExampleApp.ifNotNullElseListFilesSize(notExists))
     assertEquals("TEST", nullableExampleApp.returnIfNotNull("test"))
     assertEquals("null", nullableExampleApp.returnIfNotNull(null))
+    assertEquals("true", nullableExampleApp.booleanNull(true))
+    assertEquals("false or null", nullableExampleApp.booleanNull(false))
+    assertEquals("false or null", nullableExampleApp.booleanNull(null))
 }
