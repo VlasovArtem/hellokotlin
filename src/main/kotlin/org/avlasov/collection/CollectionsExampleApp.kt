@@ -33,6 +33,10 @@ class CollectionsExampleApp {
             .toCollection(arrayListOf())
     }
 
+    fun getListValue(list: List<String>): String? {
+        return list.firstOrNull()
+    }
+
 }
 
 fun main(args: Array<String>) {
@@ -47,4 +51,6 @@ fun main(args: Array<String>) {
     assertTrue(filterToUpperCaseData.contains("APPLE"))
     val filterToUpperCaseData1 = collectionsExampleApp.filterToUpperCaseData(data, 'c')
     assertThat(filterToUpperCaseData1, IsEmptyCollection.empty())
+    assertEquals("test", collectionsExampleApp.getListValue(listOf("test", "test1")))
+    assertNull(collectionsExampleApp.getListValue(emptyList()))
 }
