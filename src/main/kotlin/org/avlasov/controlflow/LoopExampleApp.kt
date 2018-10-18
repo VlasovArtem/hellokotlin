@@ -1,6 +1,7 @@
-package org.avlasov.loop
+package org.avlasov.controlflow
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 
 /**
  *   Created By artemvlasov on 2018-10-12
@@ -32,6 +33,16 @@ class LoopExampleApp {
         return itemsLength
     }
 
+    fun loopWithIndex(array: Array<String>, startWith: String): Array<Int?> {
+        val intArray = Array<Int?>(array.size) { null }
+        var lastIndex = 0
+        for ((index, value) in array.withIndex()) {
+            if (value.startsWith(startWith))
+                intArray[lastIndex++] = index
+        }
+        return intArray
+    }
+
 }
 
 fun main(args: Array<String>) {
@@ -39,4 +50,9 @@ fun main(args: Array<String>) {
     assertEquals(15, loopExampleApp.loop(listOf("test", "test2", "test23")))
     assertEquals(6, loopExampleApp.loopIndices(listOf("123", "1", "54")))
     assertEquals(5, loopExampleApp.whileLoop(listOf("he", "llo")))
+    val array = loopExampleApp.loopWithIndex(arrayOf("test", "hello", "world"), "h")
+    assertEquals(1, array[0])
+    assertNull(array[1])
+    val arrayInt2 = loopExampleApp.loopWithIndex(arrayOf("test", "hello", "world"), "a")
+    assertNull(arrayInt2[0])
 }
