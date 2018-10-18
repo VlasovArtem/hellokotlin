@@ -1,4 +1,4 @@
-package org.avlasov.classes
+package org.avlasov.classes.inheritance
 
 /**
  *   Created By artemvlasov on 2018-10-12
