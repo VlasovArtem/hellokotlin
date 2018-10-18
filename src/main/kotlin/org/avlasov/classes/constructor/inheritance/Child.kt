@@ -10,4 +10,10 @@ class Child(childName: String) : Parent(childName) {
 
     override fun info(): String = "Child"
 
+    inner class InnerClass {
+        fun innerFunction() {
+            super@Child.info()
+        }
+    }
+
 }
