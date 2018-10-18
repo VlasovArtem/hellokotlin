@@ -9,7 +9,9 @@ fun main(args: Array<String>) {
     val child = Child("test")
     assertEquals("test", child.name)
     assertEquals("Child", child.info())
+    assertEquals("child x", child.x)
     val parent = Parent("test")
     assertEquals("test", parent.name)
     assertEquals("Parent", parent.info())
+    assertEquals("parent x", parent.x)
 }

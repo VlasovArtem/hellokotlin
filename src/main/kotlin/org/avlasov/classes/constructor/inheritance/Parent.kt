@@ -5,6 +5,8 @@ package org.avlasov.classes.constructor.inheritance
  **/
 open class Parent(var name: String) {
 
+    open val x: String = "parent x"
+
     open fun info() : String = "Parent"
 
 }
