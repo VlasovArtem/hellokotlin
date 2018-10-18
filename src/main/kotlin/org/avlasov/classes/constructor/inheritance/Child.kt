@@ -6,6 +6,7 @@ package org.avlasov.classes.constructor.inheritance
 class Child(childName: String) : Parent(childName) {
 
     override val x: String = "child x"
+    override var y: String = "child y"
 
     override fun info(): String = "Child"
 
