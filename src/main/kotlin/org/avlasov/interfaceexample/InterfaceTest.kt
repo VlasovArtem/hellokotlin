@@ -1,4 +1,4 @@
-package org.avlasov.`interface`
+package org.avlasov.interfaceexample
 
 import org.junit.Assert.assertEquals
 
