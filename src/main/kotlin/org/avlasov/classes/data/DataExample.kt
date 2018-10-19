@@ -1,4 +1,4 @@
-package org.avlasov.idioms.data
+package org.avlasov.classes.data
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
