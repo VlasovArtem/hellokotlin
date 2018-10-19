@@ -1,7 +1,6 @@
 package org.avlasov.field
 
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNull
 
 /**
  *   Created By artemvlasov on 2018-10-18
@@ -18,6 +17,11 @@ class PropertiesAndFieldsExample {
     var varPrivateSetterValue: String = "private"
         private set
     lateinit var lateInitVar: String
+    fun testLateInit(): String {
+        if (this::lateInitVar.isInitialized)
+            return "Initialized"
+        return "Not Initialized"
+    }
 }
 
 fun main(args: Array<String>) {
@@ -33,8 +37,9 @@ fun main(args: Array<String>) {
         assertEquals("GETTER SETTER", varGetterSetterValue)
         assertEquals("private", varPrivateSetterValue)
 //    propertiesAndFieldsExample.varPrivateSetterValue = "test" - won't work
-        assertNull(lateInitVar)
+        assertEquals("Not Initialized", testLateInit())
         lateInitVar = "late init"
         assertEquals("late init", lateInitVar)
+        assertEquals("Initialized", testLateInit())
     }
 }
