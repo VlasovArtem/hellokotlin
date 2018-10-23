@@ -1,4 +1,4 @@
-package org.avlasov.function
+package org.avlasov.functionandlambdas.functions
 
 import org.junit.Assert.assertEquals
 
@@ -41,7 +41,9 @@ fun main(arg: Array<String>) {
     functionExample.sumVoidWithReturn(4, 5)
     assertEquals(12, OriginalClass().plusOne(second = 1))
     assertEquals(23, OriginalClass().plusOne(22, 0))
-    assertEquals(3, varargExample(strings = *arrayOf("test", "test2", "test3")))
+    assertEquals(3,
+        varargExample(strings = *arrayOf("test", "test2", "test3"))
+    )
     assertEquals(3, 1 shl2 2)
     assertEquals(3, 1.shl2(2))
 }

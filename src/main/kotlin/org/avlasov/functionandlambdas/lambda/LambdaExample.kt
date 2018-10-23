@@ -1,4 +1,4 @@
-package org.avlasov.lambda
+package org.avlasov.functionandlambdas.lambda
 
 import org.hamcrest.collection.IsCollectionWithSize
 import org.hamcrest.core.IsCollectionContaining
