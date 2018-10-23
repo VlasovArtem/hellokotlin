@@ -6,12 +6,17 @@ import org.junit.Assert.assertNull
 /**
  *   Created By artemvlasov on 2018-10-12
  **/
-class TypeChecks {
+open class TypeChecks {
+
+    open val openVal: String = "test"
+    val customGetterVal: Int
+        get() = 10
 
     fun getLength(any: Any): Int? {
-        if (any is String)
+        if (any is String) {
+//            (any as String).length - is not required smart cast will be preformed
             return any.length
-        else if (any is Int)
+        } else if (any is Int)
             return any
         return null
     }
@@ -23,4 +28,6 @@ fun main(args: Array<String>) {
     assertEquals(4, typeChecks.getLength("test"))
     assertEquals(5, typeChecks.getLength(5))
     assertNull(typeChecks.getLength(2.9))
+    println(typeChecks.getLength(typeChecks.openVal))
+    println(typeChecks.getLength(typeChecks.customGetterVal))
 }
