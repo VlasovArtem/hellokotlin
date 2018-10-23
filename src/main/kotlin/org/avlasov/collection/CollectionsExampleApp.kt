@@ -39,6 +39,18 @@ class CollectionsExampleApp {
 
 }
 
+fun verifyCovariant() {
+    abstract class Shape
+    class Rectangle : Shape()
+    class Circle : Shape()
+
+    val listOf = listOf(Rectangle(), Rectangle())
+    val listOfShapes: List<Shape> = listOf
+    val mutableListOf = mutableListOf(Rectangle(), Rectangle())
+//    val listOfMutableShapes: MutableList<Shape> = mutableListOf - won't compile
+    val listOfShapesFromMutable: List<Shape> = mutableListOf.toList() // will return copy of a mutable list
+}
+
 fun main(args: Array<String>) {
     val collectionsExampleApp = CollectionsExampleApp()
     val data = listOf("apple", "orange", "avocado", "banana")
@@ -53,4 +65,5 @@ fun main(args: Array<String>) {
     assertThat(filterToUpperCaseData1, IsEmptyCollection.empty())
     assertEquals("test", collectionsExampleApp.getListValue(listOf("test", "test1")))
     assertNull(collectionsExampleApp.getListValue(emptyList()))
+    verifyCovariant()
 }
