@@ -1,4 +1,4 @@
-package org.avlasov.nullable
+package org.avlasov.other
 
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
