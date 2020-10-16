@@ -27,7 +27,11 @@ fun main(args: Array<String>) {
     assertEquals(dataExample.email, dataExampleCopy.email)
     val dataExampleCopyWithNewEmail = dataExample.copy(email = "new@email.com")
     assertNotEquals(dataExample.email, dataExampleCopyWithNewEmail.email)
+
     val (firstName, lastName, email) = dataExample
+
+
+
     assertEquals("firstName", firstName)
     assertEquals("lastName", lastName)
     assertEquals("test@email.com", email)

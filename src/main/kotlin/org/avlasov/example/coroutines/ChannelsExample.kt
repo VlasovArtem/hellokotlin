@@ -2,6 +2,7 @@ package org.avlasov.example.coroutines
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.*
+import org.avlasov.example.coroutines.annotation.IgnoreMethod
 import kotlin.reflect.full.declaredFunctions
 import kotlin.reflect.full.findAnnotation
 
@@ -163,15 +164,13 @@ class ChannelsExample {
         }
     }
 
-    annotation class IgnoreMethod
-
 }
 
 fun main(args: Array<String>) {
     with(ChannelsExample()) {
         val declaredFunctions = this::class.declaredFunctions
         for (function in declaredFunctions) {
-            val ignore = function.findAnnotation<ChannelsExample.IgnoreMethod>()
+            val ignore = function.findAnnotation<IgnoreMethod>()
             if (ignore == null) {
                 println("====================== ${function.name}")
                 function.call(this)

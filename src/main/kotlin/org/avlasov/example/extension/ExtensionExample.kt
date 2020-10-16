@@ -42,6 +42,9 @@ fun B.initFoo(int: Int) = "external init foo $int"
 
 fun B.Companion.fooCompanion(int: Int) = "extension companion $int"
 
+
+fun String.test() = "test"
+
 fun main(args: Array<String>) {
     val listOf = listOf("test", "hello", "world")
     assertEquals("test", listOf.extension(Predicate { s -> s.startsWith("t") }))

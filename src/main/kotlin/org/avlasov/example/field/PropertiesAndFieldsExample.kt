@@ -8,14 +8,17 @@ import org.junit.Assert.assertEquals
 class PropertiesAndFieldsExample {
 
     var varValue = "var"
+
     var varGetterSetterValue: String = "abc"
         get() = field.toUpperCase()
         set(value) {
             field = value.capitalize()
         }
+
     val valValue = "val"
     var varPrivateSetterValue: String = "private"
         private set
+
     lateinit var lateInitVar: String
     fun testLateInit(): String {
         if (this::lateInitVar.isInitialized)

@@ -8,6 +8,7 @@ import org.junit.Assert.assertNotEquals
  **/
 class IfExample {
 
+
     fun maxWithDefaultIf(a: Int, b: Int): Int {
         var max = a
         if (b > a)

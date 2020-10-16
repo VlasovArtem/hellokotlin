@@ -45,8 +45,14 @@ fun verifyCovariant() {
     class Circle : Shape()
 
     val listOf = listOf(Rectangle(), Rectangle())
+
     val listOfShapes: List<Shape> = listOf
     val mutableListOf = mutableListOf(Rectangle(), Rectangle())
+
+    mutableListOf.add(0, Rectangle())
+    mutableListOf[0] = Rectangle()
+
+
 //    val listOfMutableShapes: MutableList<Shape> = mutableListOf - won't compile
     val listOfShapesFromMutable: List<Shape> = mutableListOf.toList() // will return copy of a mutable list
 }

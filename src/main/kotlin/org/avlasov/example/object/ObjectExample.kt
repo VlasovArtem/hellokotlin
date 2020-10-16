@@ -43,6 +43,7 @@ class FactoryUser private constructor() {
 }
 
 fun main(args: Array<String>) {
+
     val ab : A = object : A(1), B {
         override val y: Int = 15
         override fun planB(): Int = 10
